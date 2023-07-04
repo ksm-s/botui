@@ -10,6 +10,7 @@ import { useBotUI, useBotUIAction } from '../hooks/index.js'
 export type ActionSelectOption = {
   value: any
   label: string
+  type: string
   selected?: boolean
 }
 
@@ -102,7 +103,7 @@ export const BotuiActionSelectButtons = () => {
         <button
           key={i}
           autoFocus={i === 0}
-          className={CSSClasses.botui_button}
+          className={option.type==='auxiliary' ? `${CSSClasses.botui_button} auxiliary`: CSSClasses.botui_button}
           onClick={() =>
             setTimeout(
               () =>
